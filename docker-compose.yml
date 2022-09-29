@@ -1,6 +1,7 @@
 version: '3.4'
 services:
-  rasa-server:
+
+  rasa-whatsapp-bot:
     image: rasa-bot:latest
     working_dir: /app
     build: "./"
@@ -8,7 +9,7 @@ services:
     volumes:
     - ./actions:/app/actions
     - ./data:/app/data
-    command: bash -c "rasa run --enable-api --cors \"*\""
+    command: bash -c "rm -rf models/* && rasa train && rasa run --enable-api --cors \"*\" --debug"
     ports:
     - '5006:5005'
     public: true
@@ -22,10 +23,10 @@ services:
     restart: always
     volumes:
     - ./actions:/app/actions
+    - ./utils:/app/utils
     command: ["rasa", "run", "actions"]
     ports:
     - '5055:5055'
-    public: false
     networks:
     - all
 
