@@ -1,6 +1,8 @@
 version: '3.4'
 services:
+  
   rasa-whatsapp-bot:
+    public: true
     image: rasa-bot:latest
     working_dir: /app
     build: "./"
@@ -10,10 +12,10 @@ services:
     - ./data:/app/data
     command: bash -c "rasa run --enable-api --cors \"*\""
     ports:
-    - '5006:5005' 
-    public: true 
+    - '5006:5005'
     networks:
     - all
+  
   rasa-actions-server:
     image: rasa-bot:latest
     working_dir: /app
