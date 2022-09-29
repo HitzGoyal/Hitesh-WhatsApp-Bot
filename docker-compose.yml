@@ -11,7 +11,7 @@ services:
     command: bash -c "rasa run --enable-api --cors \"*\""
     ports:
     - '5005:5005'
-    public: "true"
+    public: true
     networks:
     - all
 
