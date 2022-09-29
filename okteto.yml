@@ -7,8 +7,8 @@ volumes:
 sync: 
 - .:/app
 forward:
-- 5005:5005 
-reverse: 
+- 5006:5006
+reverse:
 - 8080:8080
 # The build section defines how to build the images of your development environment
 # More info: https://www.okteto.com/docs/reference/manifest/#build
