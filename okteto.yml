@@ -1,4 +1,4 @@
-name: rasa-whatsapp-bot
+name: rasa-bot
 command: bash
 volumes:
 - /root/.cache/pip
